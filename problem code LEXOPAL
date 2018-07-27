@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+ 
+int main()
+{
+	int T;
+	cin>>T;
+	string str;
+	while(T--)
+	{
+		cin>>str;
+		int l,j;
+		l=str.size();
+		j=l-1;
+		int flag = 1;
+		for (int i = 0; i <=j; ++i)
+		{
+			if(str[i]!=str[j])
+			{
+				if (str[i]=='.')
+				{
+					str[i]=str[j];
+				}
+				else if(str[j]=='.')
+				{
+					str[j]=str[i];
+				}
+				else
+				{
+					flag=0;
+					break;
+				}
+			}
+			if (str[i]=='.' && str[j]=='.')
+			{
+				str[i]='a';
+				str[j]='a';
+			}
+			j--;
+		}
+		if (flag)
+		{
+			cout<<str<<endl;
+		}
+		else
+			cout<<"-1"<<endl;
+	}
+ 
+	return 0;
+}
